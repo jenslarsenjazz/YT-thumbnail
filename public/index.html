@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thumbnail Face Swap (Gemini)</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Thumbnail Face/Head Swap</h1>
+      <p class="subtitle">
+        Upload a base thumbnail and a portrait/head image, then generate an edited thumbnail.
+      </p>
+
+      <form id="swapForm" class="card">
+        <div class="field">
+          <label for="baseImage">Base thumbnail image</label>
+          <input id="baseImage" name="baseImage" type="file" accept="image/png,image/jpeg,image/webp" required />
+          <small>JPG, PNG, WEBP • max 10MB</small>
+        </div>
+
+        <div class="preview-box" id="basePreviewBox" hidden>
+          <img id="basePreview" alt="Base thumbnail preview" />
+        </div>
+
+        <div class="field">
+          <label for="portraitImage">Portrait/head image</label>
+          <input id="portraitImage" name="portraitImage" type="file" accept="image/png,image/jpeg,image/webp" required />
+          <small>JPG, PNG, WEBP • max 10MB</small>
+        </div>
+
+        <div class="preview-box" id="portraitPreviewBox" hidden>
+          <img id="portraitPreview" alt="Portrait preview" />
+        </div>
+
+        <div class="field">
+          <label for="extraInstructions">Extra instructions (optional)</label>
+          <textarea
+            id="extraInstructions"
+            name="extraInstructions"
+            placeholder="Examples: keep the shirt unchanged, preserve the background exactly, keep facial expression similar..."
+            rows="4"
+          ></textarea>
+        </div>
+
+        <button id="submitBtn" type="submit">Generate Edited Thumbnail</button>
+      </form>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+
+      <section id="resultSection" class="card" hidden>
+        <h2>Generated Result</h2>
+        <img id="resultImage" alt="Generated thumbnail" />
+        <a id="downloadBtn" class="download" download="edited-thumbnail.png">Download image</a>
+      </section>
+    </main>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
